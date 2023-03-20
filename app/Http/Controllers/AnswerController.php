@@ -52,6 +52,7 @@ class AnswerController extends Controller
     {
         try {
             $input =  $request->all();
+
             $getQuestion = Question::find($input['question_id']);
             if ($getQuestion === null) {
                 return response()->json([
@@ -59,7 +60,7 @@ class AnswerController extends Controller
                     'message' => 'Question not found'
                 ], 400);
             }
-            $answer = Answer::create($request->all());
+            $answer = Answer::create($input);
             return response()->json([
                 'status' => true,
                 'message' => 'Success',
