@@ -138,15 +138,17 @@ class ExamController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Exam $exam)
+    public function destroy($id)
     {
         try {
-            if (!$exam) {
+            $exam = Exam::find($id);
+            if ($exam === null) {
                 return response()->json([
                     'status' => false,
-                    'message' => 'Exam not found',
+                    'message' => 'Exam not found'
                 ], 400);
             }
+
             $exam->delete();
             return response()->json([
                 'status' => true,

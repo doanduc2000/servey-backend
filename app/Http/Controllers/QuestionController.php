@@ -81,7 +81,25 @@ class QuestionController extends Controller
      */
     public function show($id)
     {
-        //
+        try {
+            $getQuestion = Question::find($id);
+            if ($getQuestion === null) {
+                return response()->json([
+                    'status' => false,
+                    'message' => 'Question not found'
+                ], 400);
+            }
+            return response()->json([
+                'status' => true,
+                'message' => 'Success',
+                'data' => $getQuestion
+            ], 201);
+        } catch (Exception $e) {
+            return response()->json([
+                'status' => false,
+                'message' => $e
+            ], 500);
+        }
     }
 
     /**
@@ -104,7 +122,26 @@ class QuestionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            $getQuestion = Question::find($id);
+            if ($getQuestion === null) {
+                return response()->json([
+                    'status' => false,
+                    'message' => 'Question not found'
+                ], 400);
+            }
+            $getQuestion->update($request->all());
+            return response()->json([
+                'status' => true,
+                'message' => 'Success',
+                'data' => $getQuestion
+            ], 201);
+        } catch (Exception $e) {
+            return response()->json([
+                'status' => false,
+                'message' => $e
+            ], 500);
+        }
     }
 
     /**
@@ -115,6 +152,24 @@ class QuestionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            $getQuestion = Question::find($id);
+            if ($getQuestion === null) {
+                return response()->json([
+                    'status' => false,
+                    'message' => 'Question not found'
+                ], 400);
+            }
+            $getQuestion->delete();
+            return response()->json([
+                'status' => true,
+                'message' => 'Success',
+            ], 200);
+        } catch (Exception $e) {
+            return response()->json([
+                'status' => false,
+                'message' => $e
+            ], 500);
+        }
     }
 }

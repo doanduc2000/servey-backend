@@ -29,6 +29,7 @@ Route::prefix('exam')->group(function () {
 Route::prefix('question')->group(function () {
     Route::get('/', [QuestionController::class, 'index']);
     Route::post('/create', [QuestionController::class, 'store']);
+    Route::get('/{question}', [ExamController::class, 'show']);
     Route::put('/{question}', [QuestionController::class, 'update']);
     Route::delete('/{question}', [QuestionController::class, 'destroy']);
 });
