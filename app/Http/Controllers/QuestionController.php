@@ -6,6 +6,7 @@ use App\Models\Exam;
 use Illuminate\Http\Request;
 use App\Models\Question;
 use Exception;
+use Illuminate\Support\Facades\DB;
 
 class QuestionController extends Controller
 {
@@ -14,11 +15,15 @@ class QuestionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
         try {
+            $examId = $request->query('exam_id');
             $questions = Question::all();
+            if ($examId) {
+                $questions = Question::where('exam_id', '=',  $examId)->get();
+            }
             return response()->json([
                 'status' => '0',
                 'message' => 'Success',
