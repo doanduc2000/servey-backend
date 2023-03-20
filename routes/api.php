@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\ExamController;
 use App\Http\Controllers\QuestionController;
 use Illuminate\Http\Request;
@@ -29,7 +30,14 @@ Route::prefix('exam')->group(function () {
 Route::prefix('question')->group(function () {
     Route::get('/', [QuestionController::class, 'index']);
     Route::post('/create', [QuestionController::class, 'store']);
-    Route::get('/{question}', [ExamController::class, 'show']);
+    Route::get('/{question}', [QuestionController::class, 'show']);
     Route::put('/{question}', [QuestionController::class, 'update']);
     Route::delete('/{question}', [QuestionController::class, 'destroy']);
+});
+Route::prefix('answer')->group(function () {
+    Route::get('/', [AnswerController::class, 'index']);
+    Route::post('/create', [AnswerController::class, 'store']);
+    Route::get('/{answer}', [AnswerController::class, 'show']);
+    Route::put('/{answer}', [AnswerController::class, 'update']);
+    Route::delete('/{answer}', [AnswerController::class, 'destroy']);
 });

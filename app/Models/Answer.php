@@ -11,6 +11,7 @@ class Answer extends Model
     use HasFactory;
     protected $table = 'answers';
     protected $primaryKey = 'id';
+    protected $fillable = ['question_id', 'answer'];
     public function question()
     {
         return $this->belongsTo('App\Question', 'id_question', 'id');
