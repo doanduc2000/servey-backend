@@ -14,7 +14,6 @@ class Exam extends Model
     protected $fillable = ['exam'];
     public function question()
     {
-
         return $this->hasMany('Models\Question', 'id', 'id_question');
     }
 }

@@ -10,6 +10,7 @@ class Question extends Model
     use HasFactory;
     protected $table = 'questions';
     protected $primaryKey = 'id';
+    protected $fillable = ['exam_id', 'question'];
     public function exam()
     {
         return $this->belongsTo('App\Exam', 'id_exam', 'id');

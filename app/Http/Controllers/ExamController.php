@@ -18,13 +18,13 @@ class ExamController extends Controller
         try {
             $exams = Exam::all();
             return response()->json([
-                'status' => '0',
+                'status' => true,
                 'message' => 'Success',
                 'data' => $exams
             ], 200);
         } catch (Exception $e) {
             return response()->json([
-                'status' => '1',
+                'status' => false,
                 'message' => $e
             ], 500);
         }
@@ -50,13 +50,13 @@ class ExamController extends Controller
         try {
             $exam = Exam::create($request->all());
             return response()->json([
-                'status' => '0',
+                'status' => true,
                 'message' => 'Success',
                 'data' => $exam
             ], 201);
         } catch (Exception $e) {
             return response()->json([
-                'status' => '1',
+                'status' => false,
                 'message' => $e
             ], 500);
         }
@@ -70,7 +70,25 @@ class ExamController extends Controller
      */
     public function show($id)
     {
-        //
+        try {
+            $exam = Exam::find($id);
+            if ($exam === null) {
+                return response()->json([
+                    'status' => false,
+                    'message' => 'Exam not found',
+                ], 400);
+            }
+            return response()->json([
+                'status' => true,
+                'message' => 'Success',
+                'data' => $exam
+            ], 200);
+        } catch (Exception $e) {
+            return response()->json([
+                'status' => false,
+                'message' => $e
+            ], 500);
+        }
     }
 
     /**
@@ -96,19 +114,19 @@ class ExamController extends Controller
         try {
             if (!$exam) {
                 return response()->json([
-                    'status' => '1',
-                    'message' => 'Fail',
+                    'status' => false,
+                    'message' => 'Exam not found',
                 ], 400);
             }
             $exam->update($request->all());
             return response()->json([
-                'status' => '0',
+                'status' => true,
                 'message' => 'Success',
                 'data' => $exam
             ], 201);
         } catch (Exception $e) {
             return response()->json([
-                'status' => '1',
+                'status' => false,
                 'message' => $e
             ], 500);
         }
@@ -125,18 +143,18 @@ class ExamController extends Controller
         try {
             if (!$exam) {
                 return response()->json([
-                    'status' => '1',
-                    'message' => 'Fail',
+                    'status' => false,
+                    'message' => 'Exam not found',
                 ], 400);
             }
             $exam->delete();
             return response()->json([
-                'status' => '0',
+                'status' => true,
                 'message' => 'Success',
-            ], 201);
+            ], 200);
         } catch (Exception $e) {
             return response()->json([
-                'status' => '1',
+                'status' => false,
                 'message' => $e
             ], 500);
         }
