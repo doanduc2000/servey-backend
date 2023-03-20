@@ -109,9 +109,10 @@ class ExamController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Exam $exam)
+    public function update(Request $request, $id)
     {
         try {
+            $exam = Exam::find($id);
             if (!$exam) {
                 return response()->json([
                     'status' => false,
