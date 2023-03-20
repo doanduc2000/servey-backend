@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th3 20, 2023 lúc 05:15 AM
+-- Thời gian đã tạo: Th3 20, 2023 lúc 11:05 AM
 -- Phiên bản máy phục vụ: 10.4.24-MariaDB
 -- Phiên bản PHP: 7.4.29
 
@@ -31,6 +31,7 @@ CREATE TABLE `answers` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `question_id` bigint(20) UNSIGNED NOT NULL,
   `answer` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `correct` tinyint(1) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -39,11 +40,15 @@ CREATE TABLE `answers` (
 -- Đang đổ dữ liệu cho bảng `answers`
 --
 
-INSERT INTO `answers` (`id`, `question_id`, `answer`, `created_at`, `updated_at`) VALUES
-(5, 9, 'Đáp án 4', '2023-03-19 21:08:40', '2023-03-19 21:08:40'),
-(6, 9, 'Đáp án 3', '2023-03-19 21:08:44', '2023-03-19 21:08:44'),
-(7, 9, 'Đáp án 2', '2023-03-19 21:08:47', '2023-03-19 21:08:47'),
-(8, 9, 'Đáp án 1', '2023-03-19 21:08:50', '2023-03-19 21:08:50');
+INSERT INTO `answers` (`id`, `question_id`, `answer`, `correct`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Dap an 9', 1, '2023-03-20 01:22:34', '2023-03-20 01:27:24'),
+(2, 1, 'Đáp án 1', 0, '2023-03-20 01:23:02', '2023-03-20 01:23:02'),
+(3, 1, 'Đáp án 1', 0, '2023-03-20 01:23:56', '2023-03-20 01:23:56'),
+(4, 1, 'Đáp án 2', 0, '2023-03-20 01:24:00', '2023-03-20 01:24:00'),
+(5, 2, 'Đáp án 2', 0, '2023-03-20 01:24:16', '2023-03-20 01:24:16'),
+(6, 2, 'Đáp án 1', 0, '2023-03-20 01:24:22', '2023-03-20 01:24:22'),
+(7, 2, 'Đáp án 3', 0, '2023-03-20 01:24:26', '2023-03-20 01:24:26'),
+(8, 2, 'Đáp án 4', 0, '2023-03-20 01:24:29', '2023-03-20 01:24:29');
 
 -- --------------------------------------------------------
 
@@ -63,10 +68,10 @@ CREATE TABLE `exams` (
 --
 
 INSERT INTO `exams` (`id`, `exam`, `created_at`, `updated_at`) VALUES
-(2, 'Câu hỏi về html', '2023-03-19 20:38:22', '2023-03-19 20:38:22'),
-(3, 'Câu hỏi về css', '2023-03-19 20:38:24', '2023-03-19 20:38:24'),
-(4, 'Câu hỏi về php', '2023-03-19 20:38:28', '2023-03-19 20:38:28'),
-(5, 'Câu hỏi về python', '2023-03-19 20:38:33', '2023-03-19 20:38:33');
+(1, 'Câu hỏi về ruby', '2023-03-20 01:18:47', '2023-03-20 01:18:47'),
+(2, 'Câu hỏi về html', '2023-03-20 01:18:54', '2023-03-20 01:18:54'),
+(3, 'Câu hỏi về css', '2023-03-20 01:18:56', '2023-03-20 01:18:56'),
+(4, 'Câu hỏi về js', '2023-03-20 01:19:01', '2023-03-20 01:19:01');
 
 -- --------------------------------------------------------
 
@@ -101,13 +106,13 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(1, '2014_10_12_000000_create_users_table', 1),
-(2, '2014_10_12_100000_create_password_resets_table', 1),
-(3, '2019_08_19_000000_create_failed_jobs_table', 1),
-(4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(5, '2023_03_18_084558_create_exams_table', 1),
-(6, '2023_03_18_084701_create_questions_table', 1),
-(7, '2023_03_18_084759_create_answers_table', 1);
+(21, '2014_10_12_000000_create_users_table', 1),
+(22, '2014_10_12_100000_create_password_resets_table', 1),
+(23, '2019_08_19_000000_create_failed_jobs_table', 1),
+(24, '2019_12_14_000001_create_personal_access_tokens_table', 1),
+(25, '2023_03_18_084558_create_exams_table', 1),
+(26, '2023_03_18_084701_create_questions_table', 1),
+(27, '2023_03_18_084759_create_answers_table', 1);
 
 -- --------------------------------------------------------
 
@@ -158,13 +163,15 @@ CREATE TABLE `questions` (
 --
 
 INSERT INTO `questions` (`id`, `exam_id`, `question`, `created_at`, `updated_at`) VALUES
-(9, 5, 'Câu 7', '2023-03-19 20:53:51', '2023-03-19 20:53:51'),
-(10, 5, 'Câu 1', '2023-03-19 20:53:54', '2023-03-19 20:53:54'),
-(11, 5, 'Câu 2', '2023-03-19 20:53:57', '2023-03-19 20:53:57'),
-(12, 5, 'Câu 3', '2023-03-19 20:54:01', '2023-03-19 20:54:01'),
-(13, 5, 'Câu 4', '2023-03-19 20:54:04', '2023-03-19 20:54:04'),
-(14, 5, 'Câu 5', '2023-03-19 20:54:08', '2023-03-19 20:54:08'),
-(15, 5, 'Câu 6', '2023-03-19 20:54:13', '2023-03-19 20:54:13');
+(1, 1, 'Câu 5', '2023-03-20 01:19:25', '2023-03-20 01:19:25'),
+(2, 1, 'Câu 1', '2023-03-20 01:19:30', '2023-03-20 01:19:30'),
+(3, 1, 'Câu 2', '2023-03-20 01:19:34', '2023-03-20 01:19:34'),
+(4, 1, 'Câu 3', '2023-03-20 01:19:37', '2023-03-20 01:19:37'),
+(5, 1, 'Câu 4', '2023-03-20 01:19:40', '2023-03-20 01:19:40'),
+(6, 2, 'Câu 4', '2023-03-20 01:19:43', '2023-03-20 01:19:43'),
+(7, 2, 'Câu 3', '2023-03-20 01:19:46', '2023-03-20 01:19:46'),
+(8, 2, 'Câu 2', '2023-03-20 01:19:49', '2023-03-20 01:19:49'),
+(9, 2, 'Câu 1', '2023-03-20 01:19:52', '2023-03-20 01:19:52');
 
 -- --------------------------------------------------------
 
@@ -249,13 +256,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `answers`
 --
 ALTER TABLE `answers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT cho bảng `exams`
 --
 ALTER TABLE `exams`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT cho bảng `failed_jobs`
@@ -267,7 +274,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT cho bảng `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT cho bảng `personal_access_tokens`
@@ -279,7 +286,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT cho bảng `questions`
 --
 ALTER TABLE `questions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT cho bảng `users`
