@@ -14,11 +14,15 @@ class AnswerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
         try {
+            $questionId = $request->query('question_id');
             $answers = Answer::all();
+            if ($questionId) {
+                $answers = Answer::where('question_id', '=',  $questionId)->get();
+            }
             return response()->json([
                 'status' => '0',
                 'message' => 'Success',

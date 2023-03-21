@@ -154,6 +154,7 @@ class ExamController extends Controller
             return response()->json([
                 'status' => true,
                 'message' => 'Success',
+                'data' => $exam
             ], 200);
         } catch (Exception $e) {
             return response()->json([
