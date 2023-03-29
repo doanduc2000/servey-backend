@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th3 29, 2023 lúc 04:23 AM
+-- Thời gian đã tạo: Th3 29, 2023 lúc 10:03 AM
 -- Phiên bản máy phục vụ: 10.4.24-MariaDB
 -- Phiên bản PHP: 7.4.29
 
@@ -67,7 +67,7 @@ CREATE TABLE `exams` (
 --
 
 INSERT INTO `exams` (`id`, `exam`, `created_at`, `updated_at`) VALUES
-(1, 'Câu hỏi về ruby', '2023-03-20 01:18:47', '2023-03-20 01:18:47'),
+(1, 'Câu hỏi về x', '2023-03-20 01:18:47', '2023-03-29 00:52:25'),
 (2, 'Câu hỏi về html', '2023-03-20 01:18:54', '2023-03-20 01:18:54'),
 (3, 'Câu hỏi về css', '2023-03-20 01:18:56', '2023-03-20 01:18:56'),
 (4, 'Câu hỏi về cd', '2023-03-20 01:19:01', '2023-03-20 20:58:52'),
@@ -75,7 +75,13 @@ INSERT INTO `exams` (`id`, `exam`, `created_at`, `updated_at`) VALUES
 (12, 'Câu hỏi về data', '2023-03-22 02:58:38', '2023-03-22 02:58:38'),
 (13, 'Câu hỏi về js', '2023-03-28 18:45:43', '2023-03-28 18:45:43'),
 (14, 'Câu hỏi về html', '2023-03-28 18:45:55', '2023-03-28 18:45:55'),
-(15, 'Câu hỏi về html', '2023-03-28 19:18:31', '2023-03-28 19:18:31');
+(15, 'Câu hỏi về html', '2023-03-28 19:18:31', '2023-03-28 19:18:31'),
+(17, 'Câu hỏi về html', '2023-03-29 00:20:29', '2023-03-29 00:20:29'),
+(18, 'Câu hỏi về html', '2023-03-29 00:20:38', '2023-03-29 00:20:38'),
+(19, 'Câu hỏi về html', '2023-03-29 00:20:41', '2023-03-29 00:20:41'),
+(20, 'Câu hỏi về htmla', '2023-03-29 00:20:48', '2023-03-29 00:20:48'),
+(21, 'Câu hỏi về htmla', '2023-03-29 00:23:30', '2023-03-29 00:23:30'),
+(22, 'asdas', '2023-03-29 00:52:00', '2023-03-29 00:52:00');
 
 -- --------------------------------------------------------
 
@@ -147,8 +153,14 @@ CREATE TABLE `oauth_access_tokens` (
 
 INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes`, `revoked`, `created_at`, `updated_at`, `expires_at`) VALUES
 ('055adadfcc49fbd71b11c1767f10938e0ce7bc2ec6251a0ee25b8a0f9236582ea7c922bc5b589d66', 2, 3, 'MyApp', '[]', 0, '2023-03-28 19:14:11', '2023-03-28 19:14:11', '2024-03-29 02:14:11'),
+('15c4074fc76e17b5cc22b9bfca79f0148b39ebc6301c0123b35439c2353d33d19db5c9eaeb26fb8e', 2, 3, 'MyApp', '[]', 0, '2023-03-29 00:40:04', '2023-03-29 00:40:04', '2024-03-29 07:40:04'),
+('20e80a33e8fc61e5491ef3be2a46859eb44493eb31ed3a5c125af442aadb43c50bfd65381efeb2f2', 4, 3, 'MyApp', '[]', 0, '2023-03-29 01:02:07', '2023-03-29 01:02:07', '2024-03-29 08:02:07'),
 ('2250ba0ece40110b5740fec1df5f619736c16434daba3fbe3235cd6fd875f7072d9742cd2b388f48', 2, 3, 'MyApp', '[]', 0, '2023-03-28 19:14:58', '2023-03-28 19:14:58', '2024-03-29 02:14:58'),
+('281204e27fad5e0dc53038004aa825d0054b5c1eb60b673948022f07785e0cd6a7862507e80bcaf0', 2, 3, 'MyApp', '[]', 0, '2023-03-29 00:42:17', '2023-03-29 00:42:17', '2024-03-29 07:42:17'),
+('30d596fe2d54e228cf998ea936d57814fd1b343a92f431ca2fc59e04265051da3da9082efa2c2b05', 2, 3, 'MyApp', '[]', 0, '2023-03-29 00:48:20', '2023-03-29 00:48:20', '2024-03-29 07:48:20'),
+('37be172dcf0d2a08a4c37af608e2153510378e53d8e1f31891b7276b0abd9b3c2807c7373a375cd5', 2, 3, 'MyApp', '[]', 0, '2023-03-29 01:00:24', '2023-03-29 01:00:24', '2024-03-29 08:00:24'),
 ('5aa67e3f8115d57774f999d7908630946b8677187847cb4d70dbffb107661a707b5fc7686da1d774', 2, 3, 'MyApp', '[]', 0, '2023-03-28 19:13:43', '2023-03-28 19:13:43', '2024-03-29 02:13:43'),
+('604fd61db1374cd1ee7bd8f3609ce51dfcb7c69c81ac882fa55afe71d1c8637a3edfb1ce83b03be7', 2, 3, 'MyApp', '[]', 0, '2023-03-29 00:39:11', '2023-03-29 00:39:11', '2024-03-29 07:39:11'),
 ('8e0db45e0378eadcf63482815fbb8a891096202d58aa56a1c8e1a7f6d729453346a4168c3471be9b', 2, 3, 'MyApp', '[]', 0, '2023-03-28 18:50:16', '2023-03-28 18:50:16', '2024-03-29 01:50:16'),
 ('d46d096638c8f4ef1694d0063aad33712a42b303406637c4380462443d9f903e0075a7adfab50f4c', 2, 3, 'MyApp', '[]', 0, '2023-03-28 18:42:54', '2023-03-28 18:42:54', '2024-03-29 01:42:54');
 
@@ -317,7 +329,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(2, 'duc doan', 'duc@gamil.com', NULL, '$2y$10$Nnu8nqgCs6DzKSYUBhg6S.SvIrTB0lM4SbREbekkLOxcnCX4a4ANq', NULL, '2023-03-28 18:42:54', '2023-03-28 18:42:54'),
+(2, 'duc doan', 'duc@gamil.com', NULL, '$2y$10$gVRiSb/IzhXiEvHHWaJ0j.Ht21C1PU6sCshSSJN/7h1ug28k3/m7K', NULL, '2023-03-28 18:42:54', '2023-03-28 23:34:36'),
 (4, 'duc doan', 'duc@gmail.com', NULL, '$2y$10$85lD9PXcXMn9uZ751remXuMsT0qbdTVmTMEfUmlK0qxkuQ0d0r8kq', NULL, '2023-03-28 19:17:55', '2023-03-28 19:17:55');
 
 --
@@ -426,7 +438,7 @@ ALTER TABLE `answers`
 -- AUTO_INCREMENT cho bảng `exams`
 --
 ALTER TABLE `exams`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT cho bảng `failed_jobs`
@@ -468,7 +480,7 @@ ALTER TABLE `questions`
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
