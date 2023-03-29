@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th3 23, 2023 lúc 02:45 AM
+-- Thời gian đã tạo: Th3 29, 2023 lúc 04:23 AM
 -- Phiên bản máy phục vụ: 10.4.24-MariaDB
 -- Phiên bản PHP: 7.4.29
 
@@ -72,7 +72,10 @@ INSERT INTO `exams` (`id`, `exam`, `created_at`, `updated_at`) VALUES
 (3, 'Câu hỏi về css', '2023-03-20 01:18:56', '2023-03-20 01:18:56'),
 (4, 'Câu hỏi về cd', '2023-03-20 01:19:01', '2023-03-20 20:58:52'),
 (11, 'Câu hỏi về figma', '2023-03-22 02:19:52', '2023-03-22 02:19:52'),
-(12, 'Câu hỏi về data', '2023-03-22 02:58:38', '2023-03-22 02:58:38');
+(12, 'Câu hỏi về data', '2023-03-22 02:58:38', '2023-03-22 02:58:38'),
+(13, 'Câu hỏi về js', '2023-03-28 18:45:43', '2023-03-28 18:45:43'),
+(14, 'Câu hỏi về html', '2023-03-28 18:45:55', '2023-03-28 18:45:55'),
+(15, 'Câu hỏi về html', '2023-03-28 19:18:31', '2023-03-28 19:18:31');
 
 -- --------------------------------------------------------
 
@@ -113,7 +116,120 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (24, '2019_12_14_000001_create_personal_access_tokens_table', 1),
 (25, '2023_03_18_084558_create_exams_table', 1),
 (26, '2023_03_18_084701_create_questions_table', 1),
-(27, '2023_03_18_084759_create_answers_table', 1);
+(27, '2023_03_18_084759_create_answers_table', 1),
+(33, '2016_06_01_000001_create_oauth_auth_codes_table', 2),
+(34, '2016_06_01_000002_create_oauth_access_tokens_table', 2),
+(35, '2016_06_01_000003_create_oauth_refresh_tokens_table', 2),
+(36, '2016_06_01_000004_create_oauth_clients_table', 2),
+(37, '2016_06_01_000005_create_oauth_personal_access_clients_table', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `oauth_access_tokens`
+--
+
+CREATE TABLE `oauth_access_tokens` (
+  `id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `client_id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `scopes` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `revoked` tinyint(1) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `expires_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `oauth_access_tokens`
+--
+
+INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes`, `revoked`, `created_at`, `updated_at`, `expires_at`) VALUES
+('055adadfcc49fbd71b11c1767f10938e0ce7bc2ec6251a0ee25b8a0f9236582ea7c922bc5b589d66', 2, 3, 'MyApp', '[]', 0, '2023-03-28 19:14:11', '2023-03-28 19:14:11', '2024-03-29 02:14:11'),
+('2250ba0ece40110b5740fec1df5f619736c16434daba3fbe3235cd6fd875f7072d9742cd2b388f48', 2, 3, 'MyApp', '[]', 0, '2023-03-28 19:14:58', '2023-03-28 19:14:58', '2024-03-29 02:14:58'),
+('5aa67e3f8115d57774f999d7908630946b8677187847cb4d70dbffb107661a707b5fc7686da1d774', 2, 3, 'MyApp', '[]', 0, '2023-03-28 19:13:43', '2023-03-28 19:13:43', '2024-03-29 02:13:43'),
+('8e0db45e0378eadcf63482815fbb8a891096202d58aa56a1c8e1a7f6d729453346a4168c3471be9b', 2, 3, 'MyApp', '[]', 0, '2023-03-28 18:50:16', '2023-03-28 18:50:16', '2024-03-29 01:50:16'),
+('d46d096638c8f4ef1694d0063aad33712a42b303406637c4380462443d9f903e0075a7adfab50f4c', 2, 3, 'MyApp', '[]', 0, '2023-03-28 18:42:54', '2023-03-28 18:42:54', '2024-03-29 01:42:54');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `oauth_auth_codes`
+--
+
+CREATE TABLE `oauth_auth_codes` (
+  `id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `client_id` bigint(20) UNSIGNED NOT NULL,
+  `scopes` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `revoked` tinyint(1) NOT NULL,
+  `expires_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `oauth_clients`
+--
+
+CREATE TABLE `oauth_clients` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `secret` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `provider` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `redirect` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `personal_access_client` tinyint(1) NOT NULL,
+  `password_client` tinyint(1) NOT NULL,
+  `revoked` tinyint(1) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `oauth_clients`
+--
+
+INSERT INTO `oauth_clients` (`id`, `user_id`, `name`, `secret`, `provider`, `redirect`, `personal_access_client`, `password_client`, `revoked`, `created_at`, `updated_at`) VALUES
+(1, NULL, 'Laravel Personal Access Client', '434OQ8sl0nLejAikar6Km7CDcbM2YGc7KD9MIQja', NULL, 'http://localhost', 1, 0, 0, '2023-03-28 18:06:36', '2023-03-28 18:06:36'),
+(2, NULL, 'Laravel Password Grant Client', 'i7oUZrvie0tfSCO8Cz3HEa0uEyE3p3sQ2DRvdW67', 'users', 'http://localhost', 0, 1, 0, '2023-03-28 18:06:36', '2023-03-28 18:06:36'),
+(3, NULL, 'Laravel Personal Access Client', 'L8IQJF3dAZdMJb5pvJATroMKmWvM505oLXcvGpq6', NULL, 'http://localhost', 1, 0, 0, '2023-03-28 18:06:48', '2023-03-28 18:06:48'),
+(4, NULL, 'Laravel Password Grant Client', 'lmV21BQ1KW3gK7mlWm5oKQCxLkLcsJUOMTlglEEl', 'users', 'http://localhost', 0, 1, 0, '2023-03-28 18:06:48', '2023-03-28 18:06:48');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `oauth_personal_access_clients`
+--
+
+CREATE TABLE `oauth_personal_access_clients` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `client_id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `oauth_personal_access_clients`
+--
+
+INSERT INTO `oauth_personal_access_clients` (`id`, `client_id`, `created_at`, `updated_at`) VALUES
+(1, 1, '2023-03-28 18:06:36', '2023-03-28 18:06:36'),
+(2, 3, '2023-03-28 18:06:48', '2023-03-28 18:06:48');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `oauth_refresh_tokens`
+--
+
+CREATE TABLE `oauth_refresh_tokens` (
+  `id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `access_token_id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `revoked` tinyint(1) NOT NULL,
+  `expires_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -197,6 +313,14 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
+-- Đang đổ dữ liệu cho bảng `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(2, 'duc doan', 'duc@gamil.com', NULL, '$2y$10$Nnu8nqgCs6DzKSYUBhg6S.SvIrTB0lM4SbREbekkLOxcnCX4a4ANq', NULL, '2023-03-28 18:42:54', '2023-03-28 18:42:54'),
+(4, 'duc doan', 'duc@gmail.com', NULL, '$2y$10$85lD9PXcXMn9uZ751remXuMsT0qbdTVmTMEfUmlK0qxkuQ0d0r8kq', NULL, '2023-03-28 19:17:55', '2023-03-28 19:17:55');
+
+--
 -- Chỉ mục cho các bảng đã đổ
 --
 
@@ -225,6 +349,40 @@ ALTER TABLE `failed_jobs`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `oauth_access_tokens`
+--
+ALTER TABLE `oauth_access_tokens`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `oauth_access_tokens_user_id_index` (`user_id`);
+
+--
+-- Chỉ mục cho bảng `oauth_auth_codes`
+--
+ALTER TABLE `oauth_auth_codes`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `oauth_auth_codes_user_id_index` (`user_id`);
+
+--
+-- Chỉ mục cho bảng `oauth_clients`
+--
+ALTER TABLE `oauth_clients`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `oauth_clients_user_id_index` (`user_id`);
+
+--
+-- Chỉ mục cho bảng `oauth_personal_access_clients`
+--
+ALTER TABLE `oauth_personal_access_clients`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `oauth_refresh_tokens`
+--
+ALTER TABLE `oauth_refresh_tokens`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `oauth_refresh_tokens_access_token_id_index` (`access_token_id`);
 
 --
 -- Chỉ mục cho bảng `password_resets`
@@ -268,7 +426,7 @@ ALTER TABLE `answers`
 -- AUTO_INCREMENT cho bảng `exams`
 --
 ALTER TABLE `exams`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT cho bảng `failed_jobs`
@@ -280,7 +438,19 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT cho bảng `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+
+--
+-- AUTO_INCREMENT cho bảng `oauth_clients`
+--
+ALTER TABLE `oauth_clients`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT cho bảng `oauth_personal_access_clients`
+--
+ALTER TABLE `oauth_personal_access_clients`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `personal_access_tokens`
@@ -298,7 +468,7 @@ ALTER TABLE `questions`
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
