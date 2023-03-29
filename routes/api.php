@@ -4,6 +4,7 @@ use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ExamController;
 use App\Http\Controllers\QuestionController;
+use App\Http\Middleware\SetHeader;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,7 +21,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
-Route::middleware('auth:api')->group(function () {
+Route::middleware(['auth:api', SetHeader::class])->group(function () {
+    Route::post('/reset-password', [AuthController::class, 'resetPassword']);
+    Route::get('/user/{user}', [AuthController::class, 'getUser']);
     Route::prefix('exam')->group(function () {
         Route::get('/', [ExamController::class, 'index']);
         Route::post('/create', [ExamController::class, 'store']);

@@ -17,7 +17,7 @@ class AuthController extends Controller
     {
         try {
             if (!Auth::attempt(['email' => request('email'), 'password' => request('password')])) {
-                return response()->json(['error' => 'Unauthorised'], 401);
+                return response()->json(['error' => 'Tài khoản hoặc mật khẩu không đúng'], 401);
             }
             /** @var \App\Models\User $user **/
             $user = Auth::user();
@@ -46,6 +46,61 @@ class AuthController extends Controller
             $input['password'] = bcrypt($input['password']);
             $user = User::create($input);
             return response()->json(['status' => true, 'message' => 'Success', 'data' => $user], 200);
+        } catch (Exception $e) {
+            return response()->json([
+                'status' => false,
+                'message' => $e
+            ], 500);
+        }
+    }
+    public function resetPassword(Request $request)
+    {
+        try {
+            $validator = FacadesValidator::make($request->all(), [
+                'id' => 'required',
+                'password' => 'required',
+                'c_password' => 'required|same:password',
+            ]);
+            if ($validator->fails()) {
+                return response()->json(['error' => $validator->errors()], 401);
+            }
+            $input = $request->all();
+            $user = User::find($input['id']);
+            if (!$user) {
+                return response()->json([
+                    'status' => false,
+                    'message' => 'User not found',
+                ], 400);
+            }
+            $input['password'] = bcrypt($input['password']);
+            $user->update($input);
+            return response()->json([
+                'status' => true,
+                'message' => 'Success',
+                'data' => $user
+            ], 201);
+        } catch (Exception $e) {
+            return response()->json([
+                'status' => false,
+                'message' => $e
+            ], 500);
+        }
+    }
+    public function getUser($id)
+    {
+        try {
+            $user = User::find($id);
+            if ($user === null) {
+                return response()->json([
+                    'status' => false,
+                    'message' => 'User not found',
+                ], 400);
+            }
+            return response()->json([
+                'status' => true,
+                'message' => 'Success',
+                'data' => $user
+            ], 200);
         } catch (Exception $e) {
             return response()->json([
                 'status' => false,
