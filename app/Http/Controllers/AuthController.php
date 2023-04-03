@@ -6,6 +6,7 @@ use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator as FacadesValidator;
 
 
@@ -86,10 +87,11 @@ class AuthController extends Controller
             ], 500);
         }
     }
-    public function getUser($id)
+    public function getUser()
     {
         try {
-            $user = User::find($id);
+            $userId = auth('api')->user()->id;
+            $user = User::find($userId);
             if ($user === null) {
                 return response()->json([
                     'status' => false,
