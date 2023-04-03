@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th4 03, 2023 lúc 06:10 AM
+-- Thời gian đã tạo: Th4 03, 2023 lúc 11:21 AM
 -- Phiên bản máy phục vụ: 10.4.24-MariaDB
 -- Phiên bản PHP: 7.4.29
 
@@ -41,7 +41,24 @@ CREATE TABLE `answers` (
 
 INSERT INTO `answers` (`id`, `question_id`, `answer`, `created_at`, `updated_at`) VALUES
 (1, 1, 'HTML là ...', '2023-04-02 20:43:11', '2023-04-02 20:43:11'),
-(2, 1, 'HTML có ...', '2023-04-02 20:43:26', '2023-04-02 20:43:26');
+(2, 1, 'HTML có ...', '2023-04-02 20:43:26', '2023-04-02 20:43:26'),
+(3, 2, 'asdasd', '2023-04-03 00:22:56', '2023-04-03 00:22:56'),
+(4, 2, 'fdgdfg', '2023-04-03 00:22:59', '2023-04-03 00:22:59'),
+(5, 6, 'ádasdasd', '2023-04-03 00:23:30', '2023-04-03 00:23:30'),
+(6, 6, 'ádasd', '2023-04-03 00:23:32', '2023-04-03 00:23:32'),
+(7, 6, 'dsfgsd', '2023-04-03 00:23:35', '2023-04-03 00:23:35'),
+(8, 5, 'dádsasa', '2023-04-03 00:23:42', '2023-04-03 00:23:42'),
+(9, 5, 'dgfhgfd', '2023-04-03 00:23:46', '2023-04-03 00:23:46'),
+(10, 5, 'qưewqr', '2023-04-03 00:23:49', '2023-04-03 00:23:49'),
+(11, 5, 'qweqw', '2023-04-03 00:23:53', '2023-04-03 00:23:53'),
+(12, 7, 'ádasfsd', '2023-04-03 00:24:22', '2023-04-03 00:24:22'),
+(13, 7, 'sadasf', '2023-04-03 00:24:25', '2023-04-03 00:24:25'),
+(14, 7, 'feqwrew', '2023-04-03 00:24:28', '2023-04-03 00:24:28'),
+(15, 7, 'ádfgds', '2023-04-03 00:24:32', '2023-04-03 00:24:32'),
+(16, 8, 'sádafsd', '2023-04-03 00:24:39', '2023-04-03 00:24:39'),
+(17, 8, 'dsgsdfg', '2023-04-03 00:24:41', '2023-04-03 00:24:41'),
+(18, 8, 'sdfsdg', '2023-04-03 00:24:46', '2023-04-03 00:24:46'),
+(19, 8, 'adasd', '2023-04-03 00:24:48', '2023-04-03 00:24:48');
 
 -- --------------------------------------------------------
 
@@ -266,9 +283,13 @@ CREATE TABLE `questions` (
 
 INSERT INTO `questions` (`id`, `exam_id`, `question`, `correct_answer`, `created_at`, `updated_at`) VALUES
 (1, 1, 'HTML là gì ??', 'HTML là ...', '2023-04-02 20:38:18', '2023-04-02 21:05:38'),
-(2, 1, 'Tác dụng của HTML ?', NULL, '2023-04-02 20:40:43', '2023-04-02 20:41:02'),
+(2, 1, 'Tác dụng của HTML ?', 'fdgdfg', '2023-04-02 20:40:43', '2023-04-03 00:23:01'),
 (3, 1, '<br> là gì ?', NULL, '2023-04-02 20:40:53', '2023-04-02 20:40:53'),
-(4, 1, '<body> </body> là gì ?', NULL, '2023-04-02 20:41:26', '2023-04-02 20:41:26');
+(4, 1, '<body> </body> là gì ?', NULL, '2023-04-02 20:41:26', '2023-04-02 20:41:26'),
+(5, 2, 'JS là gì ?', 'qưewqr', '2023-04-03 00:23:15', '2023-04-03 00:23:54'),
+(6, 2, 'Tính chất của JS', 'ádasd', '2023-04-03 00:23:26', '2023-04-03 00:23:36'),
+(7, 3, 'CSS laf gif ?', 'feqwrew', '2023-04-03 00:24:10', '2023-04-03 00:24:34'),
+(8, 3, 'Tính chất của css', 'dsgsdfg', '2023-04-03 00:24:18', '2023-04-03 00:24:43');
 
 -- --------------------------------------------------------
 
@@ -394,7 +415,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `answers`
 --
 ALTER TABLE `answers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT cho bảng `exams`
@@ -436,7 +457,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT cho bảng `questions`
 --
 ALTER TABLE `questions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT cho bảng `users`
