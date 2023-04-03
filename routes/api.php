@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ExamController;
 use App\Http\Controllers\QuestionController;
 use Illuminate\Support\Facades\Route;
@@ -19,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
+Route::get('/get-question', [CustomerController::class, 'getAllQuestion']);
 Route::middleware(['auth:api'])->group(function () {
     Route::post('/reset-password', [AuthController::class, 'resetPassword']);
     Route::get('/user', [AuthController::class, 'getUser']);
