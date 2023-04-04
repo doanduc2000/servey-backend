@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Exam;
 use Exception;
+use Illuminate\Support\Facades\DB;
 
 class ExamController extends Controller
 {
@@ -16,11 +17,21 @@ class ExamController extends Controller
     public function index()
     {
         try {
-            $exams = Exam::all();
+            $exams = DB::table('exams')->select('exams.id', 'exams.exam', 'questions.question')->leftJoin('questions', 'exams.id', '=', 'questions.exam_id')->get();
+            foreach ($exams as $data) {
+                $data->question = DB::table('questions')->select('question')->where('exam_id', $data->id)->get();
+                $arr = array();
+                foreach ($data->question as $key) {
+                    array_push($arr, $key->question);
+                }
+                $data->question = count($arr);
+            }
+            $collection = collect($exams);
+            $unique_data = $collection->unique()->values()->all();
             return response()->json([
                 'status' => true,
                 'message' => 'Success',
-                'data' => $exams
+                'data' => $unique_data
             ], 200);
         } catch (Exception $e) {
             return response()->json([
