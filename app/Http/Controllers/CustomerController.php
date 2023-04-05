@@ -61,11 +61,41 @@ class CustomerController extends Controller
     public function getCustomer()
     {
         try {
-            $customers = Customer::all();
+            $customers = DB::table('customers')->select('ip')->get();
+            foreach ($customers as $data) {
+                $data->exam = DB::table('customers')
+                    ->select('exam_id', 'exam')
+                    ->where('ip', '=', $data->ip)
+                    ->join('exams', 'customers.exam_id', '=', 'exams.id')
+                    ->get();
+                $collectionExam = collect($data->exam);
+                $data->exam = $collectionExam->unique()->values()->all();
+                foreach ($data->exam as $key) {
+                    $key->question = DB::table('customers')
+                        ->select('questions.id', 'questions.question', 'answer', 'questions.correct_answer')
+                        ->where('ip', '=', $data->ip)->where('customers.exam_id', '=', $key->exam_id)
+                        ->join('questions', 'customers.question_id', '=', 'questions.id')
+                        ->get();
+                    $collectionQuestion = collect($key->question);
+                    $key->question = $collectionQuestion->unique()->values()->all();
+                    $arr = array();
+                    foreach ($key->question as $item) {
+                        $item->answers = DB::table('answers')->select('answer')->where('question_id', '=', $item->id)->get();
+                        foreach ($item->answers as $answerItem) {
+                            array_push($arr, $answerItem->answer);
+                        }
+                        $item->answers = $arr;
+                        $collectionAnswer = collect($item->answers);
+                        $item->answers = $collectionAnswer->unique()->values()->all();
+                    }
+                }
+            }
+            $collection = collect($customers);
+            $unique_data = $collection->unique()->values()->all();
             return response()->json([
-                'status' => false,
+                'status' => true,
                 'message' => 'Success',
-                'data' => $customers
+                'data' => $unique_data
             ], 200);
         } catch (Exception $e) {
             return response()->json([
