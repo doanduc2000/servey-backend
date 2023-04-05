@@ -77,7 +77,7 @@ class CustomerController extends Controller
     public function store(Request $request)
     {
         try {
-            $ip = $request->ip();
+            $ip = exec('getmac');
             $customers = [];
             foreach ($request->all() as $input) {
                 $input['ip'] = $ip;
