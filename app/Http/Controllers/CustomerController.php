@@ -87,7 +87,7 @@ class CustomerController extends Controller
                     ], 400);
                 }
                 $question = Question::find($input['question_id']);
-                if (!$question || $question->exam_id !== $exam->id) {
+                if (!$question || $question->exam_id != $exam->id) {
                     return response()->json([
                         'status' => false,
                         'message' => 'Question not found',
