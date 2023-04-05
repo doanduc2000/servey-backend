@@ -77,8 +77,10 @@ class CustomerController extends Controller
     public function store(Request $request)
     {
         try {
+            $ip = $request->ip();
             $customers = [];
             foreach ($request->all() as $input) {
+                $input['ip'] = $ip;
                 $exam = Exam::find($input['exam_id']);
                 if (!$exam) {
                     return response()->json([
