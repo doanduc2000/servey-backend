@@ -22,7 +22,7 @@ class AuthController extends Controller
             }
             /** @var \App\Models\User $user **/
             $user = Auth::user();
-            $user['token'] = 'Bearer ' . $user->createToken('MyApp')->accessToken;
+            $user['token'] = 'Bearer ' . $user->createToken('Servey')->accessToken;
             return response()->json(['status' => true, 'message' => 'Success', 'data' => $user], 200);
         } catch (Exception $e) {
             return response()->json([

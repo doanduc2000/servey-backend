@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
+Route::post('/create-customer', [CustomerController::class, 'store']);
 Route::get('/get-question', [CustomerController::class, 'getAllQuestion']);
 Route::middleware(['auth:api'])->group(function () {
     Route::post('/reset-password', [AuthController::class, 'resetPassword']);
@@ -44,5 +45,8 @@ Route::middleware(['auth:api'])->group(function () {
         Route::get('/{answer}', [AnswerController::class, 'show']);
         Route::put('/{answer}', [AnswerController::class, 'update']);
         Route::delete('/{answer}', [AnswerController::class, 'destroy']);
+    });
+    Route::prefix('customer')->group(function () {
+        Route::get('/', [CustomerController::class, 'getCustomer']);
     });
 });

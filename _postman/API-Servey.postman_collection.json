@@ -12,11 +12,27 @@
 				{
 					"name": "create-exam",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYjA3ZjI1NDE3NmU1NGEyNDUzZWM0MmM4Y2VlMzkyNGVjNDI5ZDA1Njg3OGNkNDllM2ExNzYxMzg1ZTY4MTE0NjIxMzEyNTc0MDUzN2ZhNjgiLCJpYXQiOjE2ODA1OTc0MDUuMjIzNDE1LCJuYmYiOjE2ODA1OTc0MDUuMjIzNDE4LCJleHAiOjE3MTIyMTk4MDUuMjE4NjU3LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.oK4m2YGh5qSXlhjSGXrQnvcGidlBT7tSCMxZT2bgPdRvdS0MmzdhQwMMlS3Skx3hE5hDmwy7s0jWz6uZ85qXeeRUpJYJqgV_10ZdStVlbrDAoSdD6ZuYWcclDO7H5-gwnpu-WSYR5Pwuga3KhVd4JaXNNuH0S-J2a9_wVl2qcZmaQMx65mPsB3Sgti5Fd95bVg0XdouVNG1nQMzbaNp00dk_U0JmMhzCroWVWAwjNGDuNkcTGh7V00kdaNOaWe4LKLZJ4MAFd53qAm7PkcqiZ0a6HHjbJ3zgVtaUw3-UtaehNecEDpVj_MHobuI0fFAtDlg3bTavt6MxubjNqOx0yhobSzWoyce9qw7zYMvmmbWCENs5ZsVvX1Quw1PLiewTorPQoNqy3wIj2ZlwluSEI4Pn53U7P7mp1uU8vnG_QFdyPI9rwOx2yfTRRLfm2CkOPgeTFTRPYGo2FcYPelBahx2dCuQDewnEbnNzYjFnUtyCirctVNz4-Wa44PVC05d3ZjcfbDEVQitIn4IYG06AIIT5kO8cQrtQhzMtEhGQ7Eo_isKrpklF0nLuNSv3xwLZzJpB4zMD_9OOVfhOewdf7TcxwgYuULuLH44FZXaGc24FXyaHsyU5ZJFno32wdKNG8D0Q6xtTuGTqWdFNtOgQxyfA0SQJhTTrIldCrE43cms",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzIiwianRpIjoiZDQ2ZDA5NjYzOGM4ZjRlZjE2OTRkMDA2M2FhZDMzNzEyYTQyYjMwMzQwNjYzN2M0MzgwNDYyNDQzZDlmOTAzZTAwNzVhN2FkZmFiNTBmNGMiLCJpYXQiOjE2ODAwNTQxNzQuMzYwMywibmJmIjoxNjgwMDU0MTc0LjM2MDMwMywiZXhwIjoxNzExNjc2NTc0LjM1NzU2NCwic3ViIjoiMiIsInNjb3BlcyI6W119.vrevaSUxPVrunQ0p67vauPvfLMdujhtQj18q9-mVEc7ApoXiDh01vj7TXA-WyGqZWy1hjPjb6bDpPBNWuwTTNtFRDbcLyftW-T973iWkvToF5yM_-3A6yiUZ_98wfnDnKk87VZkJ6BVhT0PHliXlcKf6xl-zFXcBtaij_ApQG0j2cxy2zddwCjjcQeKS1hMHqr_RNHnIBTPoCSQXjbMfQiHPR4DDerH4UVxJmDqcxfCkqEBGkMlXMMKYqxqJWWlVXsdIwpImXUmDr1kE9EZP3c7wD0qj632tpkXSOBjCL00bsAcjtclER9B5hCgZ1IAQ2XKfKFxoPAdNIEAvcxMb9yixrJxqn_11d0ojZJhIqzJmHYmybsVfi5xjGGwUipLAWnM7tqB0tR5AhJQhFXzITE9Icx9p-I40LXI3wa-T6b9UpSYyle1GFpp8xzTbi_Z9FYrHrmdz8ZDatf2IB-dsEq2tOjvSGSzSn1P-AIM2-zy9ZqxqPCITILADMwnTwb4jM9yn8ruK0DKHn6k-2OPhH6Kiz4d11oP6AKIi6Ej7osfYCiVBvWFfMtW_MwZZGcO5ISAXenSflGGGrwo4DTQIPzM-NscjF5ff1NRN7GBpf85Y3FMjL8A4LTRIyxdyMj8NezNiqWXPldgrbwBNdC2GUrIL6LglXN1QnXfUlWpNKeU",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"exam\":\"Câu hỏi về ruby\"\r\n}",
+							"raw": "{\r\n    \"exam\":\"Câu hỏi về htmla\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -45,10 +61,24 @@
 				{
 					"name": "get-all-exam",
 					"request": {
+						"auth": {
+							"type": "noauth"
+						},
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNTMwZDYzZDI3MGJmMTRkMmFkNTg1MTJjMjk3YmRiOTUzZmNiZTgzNWEwYjEzMTBmMGMwOTM2NTZiZTkwYzE1NDU3MmM5ZTRlYzg3MGMxMzgiLCJpYXQiOjE2ODA2NTc1OTMuOTI1NDg4LCJuYmYiOjE2ODA2NTc1OTMuOTI1NDkyLCJleHAiOjE3MTIyNzk5OTMuODc1NzAxLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.gQN9vm4OjzuepI6vqesELIBV3xJRTauR-7iiKe5Ajyj-nQmekWORRzctkokLgNR0wEi3lBg0lHnC5JUX3_6p3Lm4jDaBQsQ6Np3kIwj7A6fkVW8SwxsG3tENwt5voq84QoIwFP7Z9Xxn2rJe0by0kh9bumnQSIWt2UFCQheysiSF9bkME6uVBk5rNLPIVD-RagJDKxBUzrKpC9sEKJKjavyOqJ8NChUPqL5DGMOxtSDCTm8md1rJxJbcddR7NQt7M66ANKDPer-716GPJhSLUspbsKJO9nbY8pgYATLPEVseyfrMlz8aOsK6qW3yxPTtaeuMjaIewYYBkwWatrXGR-ojUPYjM-ObfIZIpWONf5yLmo8WXDhyisdiXeWQ7Za78DGQhyAOA2Yb_NF18OK3HH5QIN8GX9_LnIz4FtN3kZPwAEhrpOhT02f2cPuTgAkmfGWf0fN53WrKIvD5E1uTC0Z65VdjAUpp888jfWXEHB0uNnjC6tddSdIahLL9ovqRIvUJcvr0DQk9eDM4cYPn3raSJRlqYgAzZMkowgcaaY2ohnxA8nTVU68lrPBWsSpHg4SC1StCo1-4b-sJEf2-lmwX74UqfU1eBEVx0-u1GARGdSQRhegPpRd2MaH3KbW-QdcYAQLsqCjYJKdYUMp8dCgO4IVu0djyLBc9yOggWHM",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/exam/",
+							"raw": "http://127.0.0.1:8000/api/exam",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -59,8 +89,7 @@
 							"port": "8000",
 							"path": [
 								"api",
-								"exam",
-								""
+								"exam"
 							]
 						}
 					},
@@ -72,7 +101,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/exam/1",
+							"raw": "http://127.0.0.1:8000/api/exam/2",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -84,7 +113,7 @@
 							"path": [
 								"api",
 								"exam",
-								"1"
+								"2"
 							]
 						}
 					},
@@ -105,7 +134,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/exam/7",
+							"raw": "http://127.0.0.1:8000/api/exam/4",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -117,7 +146,7 @@
 							"path": [
 								"api",
 								"exam",
-								"7"
+								"4"
 							]
 						}
 					},
@@ -129,7 +158,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/exam/1",
+							"raw": "http://127.0.0.1:8000/api/exam/6",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -141,7 +170,7 @@
 							"path": [
 								"api",
 								"exam",
-								"1"
+								"6"
 							]
 						}
 					},
@@ -155,11 +184,21 @@
 				{
 					"name": "create-question",
 					"request": {
+						"auth": {
+							"type": "noauth"
+						},
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNTMwZDYzZDI3MGJmMTRkMmFkNTg1MTJjMjk3YmRiOTUzZmNiZTgzNWEwYjEzMTBmMGMwOTM2NTZiZTkwYzE1NDU3MmM5ZTRlYzg3MGMxMzgiLCJpYXQiOjE2ODA2NTc1OTMuOTI1NDg4LCJuYmYiOjE2ODA2NTc1OTMuOTI1NDkyLCJleHAiOjE3MTIyNzk5OTMuODc1NzAxLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.gQN9vm4OjzuepI6vqesELIBV3xJRTauR-7iiKe5Ajyj-nQmekWORRzctkokLgNR0wEi3lBg0lHnC5JUX3_6p3Lm4jDaBQsQ6Np3kIwj7A6fkVW8SwxsG3tENwt5voq84QoIwFP7Z9Xxn2rJe0by0kh9bumnQSIWt2UFCQheysiSF9bkME6uVBk5rNLPIVD-RagJDKxBUzrKpC9sEKJKjavyOqJ8NChUPqL5DGMOxtSDCTm8md1rJxJbcddR7NQt7M66ANKDPer-716GPJhSLUspbsKJO9nbY8pgYATLPEVseyfrMlz8aOsK6qW3yxPTtaeuMjaIewYYBkwWatrXGR-ojUPYjM-ObfIZIpWONf5yLmo8WXDhyisdiXeWQ7Za78DGQhyAOA2Yb_NF18OK3HH5QIN8GX9_LnIz4FtN3kZPwAEhrpOhT02f2cPuTgAkmfGWf0fN53WrKIvD5E1uTC0Z65VdjAUpp888jfWXEHB0uNnjC6tddSdIahLL9ovqRIvUJcvr0DQk9eDM4cYPn3raSJRlqYgAzZMkowgcaaY2ohnxA8nTVU68lrPBWsSpHg4SC1StCo1-4b-sJEf2-lmwX74UqfU1eBEVx0-u1GARGdSQRhegPpRd2MaH3KbW-QdcYAQLsqCjYJKdYUMp8dCgO4IVu0djyLBc9yOggWHM",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"exam_id\":\"1\",\r\n    \"question\":\"Câu 5\"\r\n}",
+							"raw": "{\r\n    \"exam_id\":\"2\",\r\n    \"question\":\"Câu 3\",\r\n    \"correct_answer\":\"\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -189,9 +228,15 @@
 					"name": "get-all-question",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNTMwZDYzZDI3MGJmMTRkMmFkNTg1MTJjMjk3YmRiOTUzZmNiZTgzNWEwYjEzMTBmMGMwOTM2NTZiZTkwYzE1NDU3MmM5ZTRlYzg3MGMxMzgiLCJpYXQiOjE2ODA2NTc1OTMuOTI1NDg4LCJuYmYiOjE2ODA2NTc1OTMuOTI1NDkyLCJleHAiOjE3MTIyNzk5OTMuODc1NzAxLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.gQN9vm4OjzuepI6vqesELIBV3xJRTauR-7iiKe5Ajyj-nQmekWORRzctkokLgNR0wEi3lBg0lHnC5JUX3_6p3Lm4jDaBQsQ6Np3kIwj7A6fkVW8SwxsG3tENwt5voq84QoIwFP7Z9Xxn2rJe0by0kh9bumnQSIWt2UFCQheysiSF9bkME6uVBk5rNLPIVD-RagJDKxBUzrKpC9sEKJKjavyOqJ8NChUPqL5DGMOxtSDCTm8md1rJxJbcddR7NQt7M66ANKDPer-716GPJhSLUspbsKJO9nbY8pgYATLPEVseyfrMlz8aOsK6qW3yxPTtaeuMjaIewYYBkwWatrXGR-ojUPYjM-ObfIZIpWONf5yLmo8WXDhyisdiXeWQ7Za78DGQhyAOA2Yb_NF18OK3HH5QIN8GX9_LnIz4FtN3kZPwAEhrpOhT02f2cPuTgAkmfGWf0fN53WrKIvD5E1uTC0Z65VdjAUpp888jfWXEHB0uNnjC6tddSdIahLL9ovqRIvUJcvr0DQk9eDM4cYPn3raSJRlqYgAzZMkowgcaaY2ohnxA8nTVU68lrPBWsSpHg4SC1StCo1-4b-sJEf2-lmwX74UqfU1eBEVx0-u1GARGdSQRhegPpRd2MaH3KbW-QdcYAQLsqCjYJKdYUMp8dCgO4IVu0djyLBc9yOggWHM",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/question/",
+							"raw": "http://127.0.0.1:8000/api/question",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -202,8 +247,7 @@
 							"port": "8000",
 							"path": [
 								"api",
-								"question",
-								""
+								"question"
 							]
 						}
 					},
@@ -289,6 +333,36 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "get-question-by-examId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://app.scigroupvn.com/servey/servey-backend/public/api/question?examId=${examId}",
+							"protocol": "http",
+							"host": [
+								"app",
+								"scigroupvn",
+								"com"
+							],
+							"path": [
+								"servey",
+								"servey-backend",
+								"public",
+								"api",
+								"question"
+							],
+							"query": [
+								{
+									"key": "examId",
+									"value": "${examId}"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -299,10 +373,16 @@
 					"name": "create-answer",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNTMwZDYzZDI3MGJmMTRkMmFkNTg1MTJjMjk3YmRiOTUzZmNiZTgzNWEwYjEzMTBmMGMwOTM2NTZiZTkwYzE1NDU3MmM5ZTRlYzg3MGMxMzgiLCJpYXQiOjE2ODA2NTc1OTMuOTI1NDg4LCJuYmYiOjE2ODA2NTc1OTMuOTI1NDkyLCJleHAiOjE3MTIyNzk5OTMuODc1NzAxLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.gQN9vm4OjzuepI6vqesELIBV3xJRTauR-7iiKe5Ajyj-nQmekWORRzctkokLgNR0wEi3lBg0lHnC5JUX3_6p3Lm4jDaBQsQ6Np3kIwj7A6fkVW8SwxsG3tENwt5voq84QoIwFP7Z9Xxn2rJe0by0kh9bumnQSIWt2UFCQheysiSF9bkME6uVBk5rNLPIVD-RagJDKxBUzrKpC9sEKJKjavyOqJ8NChUPqL5DGMOxtSDCTm8md1rJxJbcddR7NQt7M66ANKDPer-716GPJhSLUspbsKJO9nbY8pgYATLPEVseyfrMlz8aOsK6qW3yxPTtaeuMjaIewYYBkwWatrXGR-ojUPYjM-ObfIZIpWONf5yLmo8WXDhyisdiXeWQ7Za78DGQhyAOA2Yb_NF18OK3HH5QIN8GX9_LnIz4FtN3kZPwAEhrpOhT02f2cPuTgAkmfGWf0fN53WrKIvD5E1uTC0Z65VdjAUpp888jfWXEHB0uNnjC6tddSdIahLL9ovqRIvUJcvr0DQk9eDM4cYPn3raSJRlqYgAzZMkowgcaaY2ohnxA8nTVU68lrPBWsSpHg4SC1StCo1-4b-sJEf2-lmwX74UqfU1eBEVx0-u1GARGdSQRhegPpRd2MaH3KbW-QdcYAQLsqCjYJKdYUMp8dCgO4IVu0djyLBc9yOggWHM",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"question_id\":\"9\",\r\n    \"answer\":\"Đáp án 5\"\r\n}",
+							"raw": "{\r\n    \"question_id\":\"5\",\r\n    \"answer\":\"Đáp án 1\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -332,9 +412,15 @@
 					"name": "get-all-anwer",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNTMwZDYzZDI3MGJmMTRkMmFkNTg1MTJjMjk3YmRiOTUzZmNiZTgzNWEwYjEzMTBmMGMwOTM2NTZiZTkwYzE1NDU3MmM5ZTRlYzg3MGMxMzgiLCJpYXQiOjE2ODA2NTc1OTMuOTI1NDg4LCJuYmYiOjE2ODA2NTc1OTMuOTI1NDkyLCJleHAiOjE3MTIyNzk5OTMuODc1NzAxLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.gQN9vm4OjzuepI6vqesELIBV3xJRTauR-7iiKe5Ajyj-nQmekWORRzctkokLgNR0wEi3lBg0lHnC5JUX3_6p3Lm4jDaBQsQ6Np3kIwj7A6fkVW8SwxsG3tENwt5voq84QoIwFP7Z9Xxn2rJe0by0kh9bumnQSIWt2UFCQheysiSF9bkME6uVBk5rNLPIVD-RagJDKxBUzrKpC9sEKJKjavyOqJ8NChUPqL5DGMOxtSDCTm8md1rJxJbcddR7NQt7M66ANKDPer-716GPJhSLUspbsKJO9nbY8pgYATLPEVseyfrMlz8aOsK6qW3yxPTtaeuMjaIewYYBkwWatrXGR-ojUPYjM-ObfIZIpWONf5yLmo8WXDhyisdiXeWQ7Za78DGQhyAOA2Yb_NF18OK3HH5QIN8GX9_LnIz4FtN3kZPwAEhrpOhT02f2cPuTgAkmfGWf0fN53WrKIvD5E1uTC0Z65VdjAUpp888jfWXEHB0uNnjC6tddSdIahLL9ovqRIvUJcvr0DQk9eDM4cYPn3raSJRlqYgAzZMkowgcaaY2ohnxA8nTVU68lrPBWsSpHg4SC1StCo1-4b-sJEf2-lmwX74UqfU1eBEVx0-u1GARGdSQRhegPpRd2MaH3KbW-QdcYAQLsqCjYJKdYUMp8dCgO4IVu0djyLBc9yOggWHM",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/answer/",
+							"raw": "http://127.0.0.1:8000/api/answer/?question_id=1",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -347,6 +433,12 @@
 								"api",
 								"answer",
 								""
+							],
+							"query": [
+								{
+									"key": "question_id",
+									"value": "1"
+								}
 							]
 						}
 					},
@@ -383,7 +475,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \r\n    \"answer\":\"Dap an 9\"\r\n}",
+							"raw": "{\r\n    \"answer\":\"Dap an 9\",\r\n    \"correct\":true\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -391,7 +483,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/answer/10",
+							"raw": "http://127.0.0.1:8000/api/answer/1",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -403,7 +495,7 @@
 							"path": [
 								"api",
 								"answer",
-								"10"
+								"1"
 							]
 						}
 					},
@@ -428,6 +520,245 @@
 								"api",
 								"answer",
 								"9"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\":\"duc doan\",\"email\":\"duc@gmail.com\",\"password\":\"123456aA\",\"c_password\":\"123456aA\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/register",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"email\":\"duc@gmail.com\",\"password\":\"123456aA\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset-Password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzIiwianRpIjoiZDQ2ZDA5NjYzOGM4ZjRlZjE2OTRkMDA2M2FhZDMzNzEyYTQyYjMwMzQwNjYzN2M0MzgwNDYyNDQzZDlmOTAzZTAwNzVhN2FkZmFiNTBmNGMiLCJpYXQiOjE2ODAwNTQxNzQuMzYwMywibmJmIjoxNjgwMDU0MTc0LjM2MDMwMywiZXhwIjoxNzExNjc2NTc0LjM1NzU2NCwic3ViIjoiMiIsInNjb3BlcyI6W119.vrevaSUxPVrunQ0p67vauPvfLMdujhtQj18q9-mVEc7ApoXiDh01vj7TXA-WyGqZWy1hjPjb6bDpPBNWuwTTNtFRDbcLyftW-T973iWkvToF5yM_-3A6yiUZ_98wfnDnKk87VZkJ6BVhT0PHliXlcKf6xl-zFXcBtaij_ApQG0j2cxy2zddwCjjcQeKS1hMHqr_RNHnIBTPoCSQXjbMfQiHPR4DDerH4UVxJmDqcxfCkqEBGkMlXMMKYqxqJWWlVXsdIwpImXUmDr1kE9EZP3c7wD0qj632tpkXSOBjCL00bsAcjtclER9B5hCgZ1IAQ2XKfKFxoPAdNIEAvcxMb9yixrJxqn_11d0ojZJhIqzJmHYmybsVfi5xjGGwUipLAWnM7tqB0tR5AhJQhFXzITE9Icx9p-I40LXI3wa-T6b9UpSYyle1GFpp8xzTbi_Z9FYrHrmdz8ZDatf2IB-dsEq2tOjvSGSzSn1P-AIM2-zy9ZqxqPCITILADMwnTwb4jM9yn8ruK0DKHn6k-2OPhH6Kiz4d11oP6AKIi6Ej7osfYCiVBvWFfMtW_MwZZGcO5ISAXenSflGGGrwo4DTQIPzM-NscjF5ff1NRN7GBpf85Y3FMjL8A4LTRIyxdyMj8NezNiqWXPldgrbwBNdC2GUrIL6LglXN1QnXfUlWpNKeU",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"3\",\r\n    \"password\":\"123456aA\",\r\n    \"c_password\":\"123456aA\"\r\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/reset-password",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"reset-password"
+							],
+							"query": [
+								{
+									"key": "Authorization",
+									"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzIiwianRpIjoiZDQ2ZDA5NjYzOGM4ZjRlZjE2OTRkMDA2M2FhZDMzNzEyYTQyYjMwMzQwNjYzN2M0MzgwNDYyNDQzZDlmOTAzZTAwNzVhN2FkZmFiNTBmNGMiLCJpYXQiOjE2ODAwNTQxNzQuMzYwMywibmJmIjoxNjgwMDU0MTc0LjM2MDMwMywiZXhwIjoxNzExNjc2NTc0LjM1NzU2NCwic3ViIjoiMiIsInNjb3BlcyI6W119.vrevaSUxPVrunQ0p67vauPvfLMdujhtQj18q9-mVEc7ApoXiDh01vj7TXA-WyGqZWy1hjPjb6bDpPBNWuwTTNtFRDbcLyftW-T973iWkvToF5yM_-3A6yiUZ_98wfnDnKk87VZkJ6BVhT0PHliXlcKf6xl-zFXcBtaij_ApQG0j2cxy2zddwCjjcQeKS1hMHqr_RNHnIBTPoCSQXjbMfQiHPR4DDerH4UVxJmDqcxfCkqEBGkMlXMMKYqxqJWWlVXsdIwpImXUmDr1kE9EZP3c7wD0qj632tpkXSOBjCL00bsAcjtclER9B5hCgZ1IAQ2XKfKFxoPAdNIEAvcxMb9yixrJxqn_11d0ojZJhIqzJmHYmybsVfi5xjGGwUipLAWnM7tqB0tR5AhJQhFXzITE9Icx9p-I40LXI3wa-T6b9UpSYyle1GFpp8xzTbi_Z9FYrHrmdz8ZDatf2IB-dsEq2tOjvSGSzSn1P-AIM2-zy9ZqxqPCITILADMwnTwb4jM9yn8ruK0DKHn6k-2OPhH6Kiz4d11oP6AKIi6Ej7osfYCiVBvWFfMtW_MwZZGcO5ISAXenSflGGGrwo4DTQIPzM-NscjF5ff1NRN7GBpf85Y3FMjL8A4LTRIyxdyMj8NezNiqWXPldgrbwBNdC2GUrIL6LglXN1QnXfUlWpNKeU",
+									"disabled": true
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"disabled": true
+								},
+								{
+									"key": "Accept",
+									"value": "application/json",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get-user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzIiwianRpIjoiMzUzOTQwMGUxMTMxNWFmOWQ4NWU3ZjVmNzdlYjQ2YTY0ODYxOWJmZDdmN2Q2YmMyZWFlMDA1N2RhZjM1NTIzOTViOTQ4MjU2M2M1NWUxOWYiLCJpYXQiOjE2ODA0ODcwOTAuNzYyNTU0LCJuYmYiOjE2ODA0ODcwOTAuNzYyNTU4LCJleHAiOjE3MTIxMDk0OTAuNjc1NzAyLCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.tuB8CvCM5Gnwzv7CX3x2Z4j9HH-CFOcc3DlhzE8ueulqFLSyZKg3OPz9pphgQt2EPBz549hYIBNbmJBDWxC2PLV9S6iV7OVc8nKtErbpT4kCLI2LjAcsGecJ1gO9FLaXiY7KPfdAZck0rib77CnWdWYIWFFCkTaVpTOoY2KebOX9K9ePluJE5baS-O_w8hv10i3Y_LthG72kDMb2LNyk5lqh3_o0F5xey_Yu5a_gjnGPvekkFDTRNqvRS7KwyZ8pgQlVexqTj0HHKXJkJ9LrTVtcGjVTos4oLJsrKYMN3wcToZkAoTscNeWhaajjN99aVC44NxP6feAKp_HiKCZ1Fvc9Zm5sZcsa27hO9F2J-7CFwjlGoVOCbbRPNYdFchU7NdFinZRCySF9g5HgW-klV7DKKd-SWOYR69SJP0bHayhrwUYFOWWpRqMEBBlEj1zwW5E-2WdRF5r6IChSEmpDUdGz3v2qhMzMFiXeyyOqd29Kad77YpK7qw7y56-lbPnY9nMdYi9c4yt9uKT-b3_WpcYj4ObM8KD-qY7XMBSKDbifeQx4t2SuT6vmRhL-JdK6pfqaJT6xcKEilRHvIeOVJu31KU0Dbi9hMptpZHsuJCD97FwArhZtVqBDMnvocKOfqt6OqTEbSVxmZ3pVSw04MsUSCx6gQOw1eLOG0s9hqdk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/user",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Customer",
+			"item": [
+				{
+					"name": "get-all-question",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/get-question?examId=2",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"get-question"
+							],
+							"query": [
+								{
+									"key": "examId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create-customer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[{\r\n    \"ip\":\"192.168.1.39\",\r\n    \"exam_id\":\"1\",\r\n    \"question_id\":\"1\",\r\n    \"answer\":\"Đáp án 1\"\r\n},{\r\n    \"ip\":\"192.168.1.39\",\r\n    \"exam_id\":\"1\",\r\n    \"question_id\":\"2\",\r\n    \"answer\":\"Đáp án 1\"\r\n}]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/create-customer",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"create-customer"
 							]
 						}
 					},
