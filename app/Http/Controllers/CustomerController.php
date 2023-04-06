@@ -80,11 +80,7 @@ class CustomerController extends Controller
                     $key->question = $collectionQuestion->unique()->values()->all();
                     $arr = array();
                     foreach ($key->question as $item) {
-                        $item->answers = DB::table('answers')->select('answer')->where('question_id', '=', $item->id)->get();
-                        foreach ($item->answers as $answerItem) {
-                            array_push($arr, $answerItem->answer);
-                        }
-                        $item->answers = $arr;
+                        $item->answers = DB::table('answers')->select('answer', 'id')->where('question_id', '=', $item->id)->get();
                         $collectionAnswer = collect($item->answers);
                         $item->answers = $collectionAnswer->unique()->values()->all();
                     }
