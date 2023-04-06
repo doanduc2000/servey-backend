@@ -32,12 +32,7 @@ class CustomerController extends Controller
                 ], 400);
             }
             foreach ($question as $data) {
-                $data->answer = DB::table('answers')->select('answer')->where('question_id', $data->id)->get();
-                $arr = array();
-                foreach ($data->answer as $key) {
-                    array_push($arr, $key->answer);
-                }
-                $data->answer = $arr;
+                $data->answer = DB::table('answers')->select('answer', 'id')->where('question_id', $data->id)->get();
             }
 
             $collection = collect($question);
