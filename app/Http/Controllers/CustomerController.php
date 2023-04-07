@@ -59,7 +59,7 @@ class CustomerController extends Controller
             $customers = DB::table('customers')->select('ip')->get();
             foreach ($customers as $data) {
                 $data->exam = DB::table('customers')
-                    ->select('exam_id', 'exam')
+                    ->select('customers.exam_id', 'exams.exam', 'customers.created_at')
                     ->where('ip', '=', $data->ip)
                     ->join('exams', 'customers.exam_id', '=', 'exams.id')
                     ->get();
@@ -67,7 +67,7 @@ class CustomerController extends Controller
                 $data->exam = $collectionExam->unique()->values()->all();
                 foreach ($data->exam as $key) {
                     $key->question = DB::table('customers')
-                        ->select('questions.id', 'questions.question', 'answer', 'questions.correct_answer')
+                        ->select('questions.id', 'questions.question', 'customers.answer', 'questions.correct_answer')
                         ->where('ip', '=', $data->ip)->where('customers.exam_id', '=', $key->exam_id)
                         ->join('questions', 'customers.question_id', '=', 'questions.id')
                         ->get();
