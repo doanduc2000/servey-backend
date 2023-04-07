@@ -24,7 +24,7 @@ class CustomerController extends Controller
                     'message' => 'Exam not found'
                 ], 400);
             }
-            $question = DB::table('questions')->select('questions.id', 'questions.question', 'questions.correct_answer')->leftJoin('answers', 'questions.id', '=', 'answers.question_id')->where('questions.exam_id', '=', $examId)->get();
+            $question = DB::table('questions')->select('questions.id', 'questions.question', 'questions.correct_answer', 'questions.explain')->leftJoin('answers', 'questions.id', '=', 'answers.question_id')->where('questions.exam_id', '=', $examId)->get();
             if (!$question) {
                 return response()->json([
                     'status' => false,
