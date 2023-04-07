@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th4 05, 2023 lúc 05:06 AM
+-- Thời gian đã tạo: Th4 07, 2023 lúc 09:17 AM
 -- Phiên bản máy phục vụ: 10.4.24-MariaDB
 -- Phiên bản PHP: 7.4.29
 
@@ -40,26 +40,26 @@ CREATE TABLE `answers` (
 --
 
 INSERT INTO `answers` (`id`, `question_id`, `answer`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Đáp án 1', '2023-04-04 19:09:22', '2023-04-04 19:09:22'),
-(2, 1, 'Đáp án 2', '2023-04-04 19:09:26', '2023-04-04 19:09:26'),
-(3, 1, 'Đáp án 3', '2023-04-04 19:09:31', '2023-04-04 19:09:31'),
-(4, 1, 'Đáp án 4', '2023-04-04 19:09:35', '2023-04-04 19:09:35'),
-(5, 2, 'Đáp án 4', '2023-04-04 19:09:38', '2023-04-04 19:09:38'),
-(6, 2, 'Đáp án 1', '2023-04-04 19:09:42', '2023-04-04 19:09:42'),
-(7, 2, 'Đáp án 2', '2023-04-04 19:09:46', '2023-04-04 19:09:46'),
-(8, 2, 'Đáp án 3', '2023-04-04 19:09:49', '2023-04-04 19:09:49'),
-(9, 2, 'Đáp án 4', '2023-04-04 19:09:52', '2023-04-04 19:09:52'),
-(10, 3, 'Đáp án 4', '2023-04-04 19:10:02', '2023-04-04 19:10:02'),
-(11, 3, 'Đáp án 1', '2023-04-04 19:10:07', '2023-04-04 19:10:07'),
-(12, 3, 'Đáp án 2', '2023-04-04 19:10:10', '2023-04-04 19:10:10'),
-(13, 3, 'Đáp án 3', '2023-04-04 19:10:13', '2023-04-04 19:10:13'),
-(14, 4, 'Đáp án 3', '2023-04-04 19:10:17', '2023-04-04 19:10:17'),
-(15, 4, 'Đáp án 1', '2023-04-04 19:10:20', '2023-04-04 19:10:20'),
-(16, 4, 'Đáp án 2', '2023-04-04 19:10:23', '2023-04-04 19:10:23'),
-(17, 4, 'Đáp án 4', '2023-04-04 19:10:27', '2023-04-04 19:10:27'),
-(18, 5, 'Đáp án 4', '2023-04-04 19:10:31', '2023-04-04 19:10:31'),
-(19, 5, 'Đáp án 2', '2023-04-04 19:10:45', '2023-04-04 19:10:45'),
-(20, 5, 'Đáp án 1', '2023-04-04 19:10:50', '2023-04-04 19:10:50');
+(1, 1, 'html là ngôn ngữ lập trình', '2023-04-06 21:00:49', '2023-04-06 21:00:49'),
+(2, 1, 'HTML là một ngôn ngữ đánh dấu được thiết kế ra để tạo nên các trang web trên World Wide Web', '2023-04-06 21:01:14', '2023-04-06 21:01:14'),
+(3, 1, 'Cập nhật nội dung từ máy chủ', '2023-04-06 21:02:37', '2023-04-06 21:02:37'),
+(4, 2, 'Tổ chức World Wide Web Consortium (W3C)', '2023-04-06 21:03:42', '2023-04-06 21:03:42'),
+(5, 2, 'apple', '2023-04-06 21:03:52', '2023-04-06 21:03:52'),
+(6, 2, 'google', '2023-04-06 21:04:05', '2023-04-06 21:04:05'),
+(7, 3, '<h6>', '2023-04-06 23:59:11', '2023-04-06 23:59:11'),
+(8, 3, '<h1>', '2023-04-07 00:00:03', '2023-04-07 00:00:03'),
+(9, 3, '<head>', '2023-04-07 00:00:10', '2023-04-07 00:00:10'),
+(10, 4, 'Creative Style Sheets', '2023-04-07 00:01:33', '2023-04-07 00:01:33'),
+(11, 4, 'Computer Style Sheets', '2023-04-07 00:01:48', '2023-04-07 00:01:48'),
+(12, 4, 'Colorful Style Sheets', '2023-04-07 00:02:01', '2023-04-07 00:02:01'),
+(13, 5, 'font', '2023-04-07 00:03:10', '2023-04-07 00:03:10'),
+(14, 5, 'style', '2023-04-07 00:03:18', '2023-04-07 00:03:18'),
+(15, 5, 'class', '2023-04-07 00:03:29', '2023-04-07 00:03:29'),
+(16, 5, 'styles', '2023-04-07 00:03:41', '2023-04-07 00:03:41'),
+(17, 6, 'font', '2023-04-07 00:13:19', '2023-04-07 00:13:29'),
+(18, 6, 'style', '2023-04-07 00:13:33', '2023-04-07 00:13:33'),
+(19, 6, 'class', '2023-04-07 00:13:38', '2023-04-07 00:13:38'),
+(20, 6, 'styles', '2023-04-07 00:13:44', '2023-04-07 00:13:44');
 
 -- --------------------------------------------------------
 
@@ -82,18 +82,12 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`id`, `ip`, `exam_id`, `question_id`, `answer`, `created_at`, `updated_at`) VALUES
-(10, '192.168.1.4', 1, 1, 'Đáp án 4', '2023-04-04 19:37:34', '2023-04-04 19:37:34'),
-(11, '192.168.1.4', 1, 2, 'Đáp án 4', '2023-04-04 19:37:56', '2023-04-04 19:37:56'),
-(12, '192.168.1.2', 1, 2, 'Đáp án 4', '2023-04-04 19:38:03', '2023-04-04 19:38:03'),
-(13, '192.168.1.2', 1, 3, 'Đáp án 4', '2023-04-04 19:40:53', '2023-04-04 19:40:53'),
-(14, '192.168.1.2', 1, 4, 'Đáp án 4', '2023-04-04 19:40:57', '2023-04-04 19:40:57'),
-(15, '192.168.1.2', 2, 5, 'Đáp án 4', '2023-04-04 19:41:06', '2023-04-04 19:41:06'),
-(16, '192.168.1.2', 2, 6, 'Đáp án 1', '2023-04-04 19:41:13', '2023-04-04 19:41:13'),
-(17, '192.168.1.2', 2, 7, 'Đáp án 1', '2023-04-04 19:41:17', '2023-04-04 19:41:17'),
-(18, '192.168.1.2', 2, 8, 'Đáp án 1', '2023-04-04 19:41:21', '2023-04-04 19:41:21'),
-(19, '192.168.1.3', 1, 1, 'Đáp án 1', '2023-04-04 20:01:08', '2023-04-04 20:01:08'),
-(20, '192.168.1.39', 1, 1, 'Đáp án 1', '2023-04-04 20:01:36', '2023-04-04 20:01:36'),
-(21, '192.168.1.39', 1, 2, 'Đáp án 1', '2023-04-04 20:01:36', '2023-04-04 20:01:36');
+(1, '127.0.0.1', 1, 1, 'HTML là một ngôn ngữ đánh dấu được thiết kế ra để tạo nên các trang web trên World Wide Web', '2023-04-07 00:06:09', '2023-04-07 00:06:09'),
+(2, '127.0.0.1', 1, 2, 'apple', '2023-04-07 00:06:09', '2023-04-07 00:06:09'),
+(3, '127.0.0.1', 1, 3, '<h6>', '2023-04-07 00:06:09', '2023-04-07 00:06:09'),
+(4, '127.0.0.1', 2, 4, 'Creative Style Sheets', '2023-04-07 00:14:45', '2023-04-07 00:14:45'),
+(5, '127.0.0.1', 2, 5, 'style', '2023-04-07 00:14:45', '2023-04-07 00:14:45'),
+(6, '127.0.0.1', 2, 6, 'style', '2023-04-07 00:14:45', '2023-04-07 00:14:45');
 
 -- --------------------------------------------------------
 
@@ -113,8 +107,9 @@ CREATE TABLE `exams` (
 --
 
 INSERT INTO `exams` (`id`, `exam`, `created_at`, `updated_at`) VALUES
-(1, 'Câu hỏi về htmla', '2023-04-04 01:38:47', '2023-04-04 01:38:47'),
-(2, 'Câu hỏi về htmla', '2023-04-04 01:42:10', '2023-04-04 01:42:10');
+(1, 'Câu hỏi về html', '2023-04-06 20:57:55', '2023-04-06 20:57:55'),
+(2, 'Câu hỏi về css', '2023-04-06 20:58:04', '2023-04-06 20:58:04'),
+(3, 'Câu hỏi về js', '2023-04-06 20:59:59', '2023-04-06 20:59:59');
 
 -- --------------------------------------------------------
 
@@ -149,19 +144,19 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(14, '2014_10_12_000000_create_users_table', 1),
-(15, '2014_10_12_100000_create_password_resets_table', 1),
-(16, '2016_06_01_000001_create_oauth_auth_codes_table', 1),
-(17, '2016_06_01_000002_create_oauth_access_tokens_table', 1),
-(18, '2016_06_01_000003_create_oauth_refresh_tokens_table', 1),
-(19, '2016_06_01_000004_create_oauth_clients_table', 1),
-(20, '2016_06_01_000005_create_oauth_personal_access_clients_table', 1),
-(21, '2019_08_19_000000_create_failed_jobs_table', 1),
-(22, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(23, '2023_03_18_084558_create_exams_table', 1),
-(24, '2023_03_18_084701_create_questions_table', 1),
-(25, '2023_03_18_084759_create_answers_table', 1),
-(26, '2023_04_04_071000_create_customers_table', 1);
+(27, '2014_10_12_000000_create_users_table', 1),
+(28, '2014_10_12_100000_create_password_resets_table', 1),
+(29, '2016_06_01_000001_create_oauth_auth_codes_table', 1),
+(30, '2016_06_01_000002_create_oauth_access_tokens_table', 1),
+(31, '2016_06_01_000003_create_oauth_refresh_tokens_table', 1),
+(32, '2016_06_01_000004_create_oauth_clients_table', 1),
+(33, '2016_06_01_000005_create_oauth_personal_access_clients_table', 1),
+(34, '2019_08_19_000000_create_failed_jobs_table', 1),
+(35, '2019_12_14_000001_create_personal_access_tokens_table', 1),
+(36, '2023_03_18_084558_create_exams_table', 1),
+(37, '2023_03_18_084701_create_questions_table', 1),
+(38, '2023_03_18_084759_create_answers_table', 1),
+(39, '2023_04_04_071000_create_customers_table', 1);
 
 -- --------------------------------------------------------
 
@@ -186,8 +181,7 @@ CREATE TABLE `oauth_access_tokens` (
 --
 
 INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes`, `revoked`, `created_at`, `updated_at`, `expires_at`) VALUES
-('530d63d270bf14d2ad58512c297bdb953fcbe835a0b1310f0c093656be90c154572c9e4ec870c138', 1, 1, 'Servey', '[]', 0, '2023-04-04 18:19:53', '2023-04-04 18:19:53', '2024-04-05 01:19:53'),
-('b07f254176e54a2453ec42c8cee3924ec429d056878cd49e3a1761385e681146213125740537fa68', 1, 1, 'MyApp', '[]', 0, '2023-04-04 01:36:45', '2023-04-04 01:36:45', '2024-04-04 08:36:45');
+('45515c09694c1272e4a06c14fdb3be24b06429c27d01447e9124ef5abeddd48f1861601608bf08af', 1, 1, 'Servey', '[]', 0, '2023-04-06 20:57:39', '2023-04-06 20:57:39', '2024-04-07 03:57:39');
 
 -- --------------------------------------------------------
 
@@ -229,8 +223,8 @@ CREATE TABLE `oauth_clients` (
 --
 
 INSERT INTO `oauth_clients` (`id`, `user_id`, `name`, `secret`, `provider`, `redirect`, `personal_access_client`, `password_client`, `revoked`, `created_at`, `updated_at`) VALUES
-(1, NULL, 'Laravel Personal Access Client', 'Kvf2w2om477EaWf3MlCOzwlUiUMCtWecEgzoJhAp', NULL, 'http://localhost', 1, 0, 0, '2023-04-04 00:13:50', '2023-04-04 00:13:50'),
-(2, NULL, 'Laravel Password Grant Client', '4DtWdlmhy9XcNKtjOUesXwctjwtayUkJ4yA8RSbF', 'users', 'http://localhost', 0, 1, 0, '2023-04-04 00:13:50', '2023-04-04 00:13:50');
+(1, NULL, 'Laravel Personal Access Client', 'YyCoan0s8P5Zc8oGyVXY2I244x7ppMrSVx8uga3H', NULL, 'http://localhost', 1, 0, 0, '2023-04-06 20:55:42', '2023-04-06 20:55:42'),
+(2, NULL, 'Laravel Password Grant Client', 'DaldFrKlUiM63qlx0t1xpNccHPUmWbn34PNyMnPD', 'users', 'http://localhost', 0, 1, 0, '2023-04-06 20:55:43', '2023-04-06 20:55:43');
 
 -- --------------------------------------------------------
 
@@ -250,7 +244,7 @@ CREATE TABLE `oauth_personal_access_clients` (
 --
 
 INSERT INTO `oauth_personal_access_clients` (`id`, `client_id`, `created_at`, `updated_at`) VALUES
-(1, 1, '2023-04-04 00:13:50', '2023-04-04 00:13:50');
+(1, 1, '2023-04-06 20:55:43', '2023-04-06 20:55:43');
 
 -- --------------------------------------------------------
 
@@ -306,6 +300,7 @@ CREATE TABLE `questions` (
   `exam_id` bigint(20) UNSIGNED NOT NULL,
   `question` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `correct_answer` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `explain` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -314,15 +309,13 @@ CREATE TABLE `questions` (
 -- Đang đổ dữ liệu cho bảng `questions`
 --
 
-INSERT INTO `questions` (`id`, `exam_id`, `question`, `correct_answer`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Câu 1', NULL, '2023-04-04 19:08:26', '2023-04-04 19:08:26'),
-(2, 1, 'Câu 2', NULL, '2023-04-04 19:08:37', '2023-04-04 19:08:37'),
-(3, 1, 'Câu 3', NULL, '2023-04-04 19:08:41', '2023-04-04 19:08:41'),
-(4, 1, 'Câu 4', NULL, '2023-04-04 19:08:44', '2023-04-04 19:08:44'),
-(5, 2, 'Câu 4', NULL, '2023-04-04 19:08:49', '2023-04-04 19:08:49'),
-(6, 2, 'Câu 1', NULL, '2023-04-04 19:08:53', '2023-04-04 19:08:53'),
-(7, 2, 'Câu 2', NULL, '2023-04-04 19:08:57', '2023-04-04 19:08:57'),
-(8, 2, 'Câu 3', NULL, '2023-04-04 19:09:00', '2023-04-04 19:09:00');
+INSERT INTO `questions` (`id`, `exam_id`, `question`, `correct_answer`, `explain`, `created_at`, `updated_at`) VALUES
+(1, 1, 'html là gì?', 'HTML là một ngôn ngữ đánh dấu được thiết kế ra để tạo nên các trang web trên World Wide Web', 'dasdasd', '2023-04-06 21:00:33', '2023-04-06 23:53:22'),
+(2, 1, 'Ai là người đưa ra các tiêu chuẩn Web?', 'Tổ chức World Wide Web Consortium (W3C)', 'hihi', '2023-04-06 21:02:57', '2023-04-06 23:53:25'),
+(3, 1, 'Chọn thẻ HTML đúng nhất cho định dạng tiêu đề lớn nhất?', '<h1>', '<h1> đúng', '2023-04-06 23:58:15', '2023-04-07 00:00:21'),
+(4, 2, 'CSS là viết tắt của?', 'Creative Style Sheets', 'Creative Style Sheets đúng', '2023-04-07 00:01:07', '2023-04-07 00:02:39'),
+(5, 2, 'Thuộc tính nào định nghĩa CSS ngay trong 1 tag?', 'style', 'style đúng', '2023-04-07 00:02:19', '2023-04-07 00:03:42'),
+(6, 2, 'Thuộc tính nào định nghĩa CSS ngay trong 1 thẻ?', 'class', NULL, '2023-04-07 00:13:04', '2023-04-07 00:13:50');
 
 -- --------------------------------------------------------
 
@@ -346,7 +339,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'duc doan', 'duc@gmail.com', NULL, '$2y$10$4A.fPUz58pYpL8xaIINhvekCog/C9XH.UckI9KovrANzUDgt09THe', NULL, '2023-04-04 01:36:40', '2023-04-04 01:36:40');
+(1, 'duc doan', 'duc@gmail.com', NULL, '$2y$10$gzxjsWSkqsxpNXDufvEVX.JMaXbTOQ0c/dCsGWEoE32fmGUciyNm.', NULL, '2023-04-06 20:57:20', '2023-04-06 20:57:20');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -460,13 +453,13 @@ ALTER TABLE `answers`
 -- AUTO_INCREMENT cho bảng `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT cho bảng `exams`
 --
 ALTER TABLE `exams`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `failed_jobs`
@@ -478,7 +471,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT cho bảng `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT cho bảng `oauth_clients`
@@ -502,13 +495,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT cho bảng `questions`
 --
 ALTER TABLE `questions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
