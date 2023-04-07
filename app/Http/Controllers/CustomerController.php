@@ -73,7 +73,6 @@ class CustomerController extends Controller
                         ->get();
                     $collectionQuestion = collect($key->question);
                     $key->question = $collectionQuestion->unique()->values()->all();
-                    $arr = array();
                     foreach ($key->question as $item) {
                         $item->answers = DB::table('answers')->select('answer', 'id')->where('question_id', '=', $item->id)->get();
                         $collectionAnswer = collect($item->answers);
