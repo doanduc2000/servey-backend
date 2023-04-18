@@ -99,7 +99,6 @@ class CustomerController extends Controller
         try {
             $ip = $request->ip();
             $customers = [];
-            $getCustomers = [];
             foreach ($request->all() as $input) {
                 $input['ip'] = $ip;
                 $exam = Exam::find($input['exam_id']);
@@ -117,31 +116,12 @@ class CustomerController extends Controller
                         'message' => 'Question not found',
                     ], 400);
                 }
-
                 $getCustomer = Customer::select('exam_id', 'question_id', 'ip', 'answer')
                     ->where('exam_id', '=', $exam->id)
                     ->where('question_id', '=', $question->id)
                     ->where('ip', '=', $input['ip'])
                     ->get();
-                if (count($getCustomer) !== 0) {
-                    array_push($getCustomers, $getCustomer[0]->answer);
-                }
-            }
-            $check = false;
-            foreach ($getCustomers as $item) {
-                if ($item === null) {
-                    $check = true;
-                }
-            }
-            if ($check === false && count($getCustomers) > 0) {
-                return response()->json([
-                    'status' => false,
-                    'message' => 'Exam haved all answer',
-                ], 400);
-            }
-            foreach ($request->all() as $input) {
-                $input['ip'] = $ip;
-                if (count($getCustomers) === 0) {
+                if (count($getCustomer) === 0) {
                     $customer = Customer::create($input);
                     array_push($customers, $customer);
                 } else {
@@ -150,13 +130,14 @@ class CustomerController extends Controller
                         ->where('exam_id', $input['exam_id'])
                         ->where('question_id', $input['question_id'])
                         ->update(['answer' => $input['answer']]);
+                    $customer = $getCustomer[0];
                     array_push($customers, $customer);
                 }
             }
             return response()->json([
                 'status' => true,
                 'message' => 'Success',
-                'data' => $getCustomers,
+                'data' => $customers,
             ], 200);
         } catch (Exception $e) {
             return response()->json([
